@@ -1,0 +1,271 @@
+/* Pygments */
+.hll { background-color: #ffffcc }
+.c { color: #408080; font-style: italic } /* Comment */
+.err { border: 1px solid #FF0000 } /* Error */
+.k { color: #008000; font-weight: bold } /* Keyword */
+.o { color: #666666 } /* Operator */
+.cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.cp { color: #BC7A00 } /* Comment.Preproc */
+.c1 { color: #408080; font-style: italic } /* Comment.Single */
+.cs { color: #408080; font-style: italic } /* Comment.Special */
+.gd { color: #A00000 } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.gr { color: #FF0000 } /* Generic.Error */
+.gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.gi { color: #00A000 } /* Generic.Inserted */
+.go { color: #808080 } /* Generic.Output */
+.gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.gs { font-weight: bold } /* Generic.Strong */
+.gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.gt { color: #0040D0 } /* Generic.Traceback */
+.kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.kp { color: #008000 } /* Keyword.Pseudo */
+.kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.kt { color: #B00040 } /* Keyword.Type */
+.m { color: #666666 } /* Literal.Number */
+.s { color: #BA2121 } /* Literal.String */
+.na { color: #7D9029 } /* Name.Attribute */
+.nb { color: #008000 } /* Name.Builtin */
+.nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.no { color: #880000 } /* Name.Constant */
+.nd { color: #AA22FF } /* Name.Decorator */
+.ni { color: #999999; font-weight: bold } /* Name.Entity */
+.ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.nf { color: #0000FF } /* Name.Function */
+.nl { color: #A0A000 } /* Name.Label */
+.nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.nt { color: #008000; font-weight: bold } /* Name.Tag */
+.nv { color: #19177C } /* Name.Variable */
+.ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+.mf { color: #666666 } /* Literal.Number.Float */
+.mh { color: #666666 } /* Literal.Number.Hex */
+.mi { color: #666666 } /* Literal.Number.Integer */
+.mo { color: #666666 } /* Literal.Number.Oct */
+.sb { color: #BA2121 } /* Literal.String.Backtick */
+.sc { color: #BA2121 } /* Literal.String.Char */
+.sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #BA2121 } /* Literal.String.Double */
+.se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.sh { color: #BA2121 } /* Literal.String.Heredoc */
+.si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.sx { color: #008000 } /* Literal.String.Other */
+.sr { color: #BB6688 } /* Literal.String.Regex */
+.s1 { color: #BA2121 } /* Literal.String.Single */
+.ss { color: #19177C } /* Literal.String.Symbol */
+.bp { color: #008000 } /* Name.Builtin.Pseudo */
+.vc { color: #19177C } /* Name.Variable.Class */
+.vg { color: #19177C } /* Name.Variable.Global */
+.vi { color: #19177C } /* Name.Variable.Instance */
+.il { color: #666666 } /* Literal.Number.Integer.Long */
+
+
+.icon {
+	width: 80px;
+	height: 80px;
+	border-radius: 4px;
+}
+.portrait {
+	width: 80px;
+	height: 80px;
+	border-radius: 4px;
+	border: 4px solid white;
+}
+.gradient {
+	background: url('../images/header.png') no-repeat, -webkit-gradient(linear, left top, left bottom, from(#000000), to(rgba(0, 0, 0, 0))) no-repeat;
+	background: url('../images/header.png') no-repeat, -moz-linear-gradient(top, #000000, rgba(0, 0, 0, 0)) no-repeat;
+}
+body {
+	color: white;
+	font-family: 'Oxygen', sans-serif;
+	margin: 0;
+	padding: 0;
+	background: url('../images/close-stars.png') repeat, url('../images/middle-stars.png') repeat, url('../images/far-stars.png') repeat, url('../images/background-repeat.png') repeat;
+}
+#header {
+	position: fixed;
+	height: 230px;
+	background: url('../images/header.png') no-repeat, -webkit-gradient(linear, left top, left bottom, from(#000000), to(rgba(0, 0, 0, 0))) no-repeat;
+	background: url('../images/header.png') no-repeat, -moz-linear-gradient(top, #000000, rgba(0, 0, 0, 0)) no-repeat;
+	width: 100%;
+	z-index: 9998;
+}
+#main {
+	width: 800px;
+	margin: 0 auto;
+	min-height: 1020px;
+	padding-top: 250px;
+	padding-right: 340px;
+	background: url('../images/ligne.png') repeat-y 348px top;
+}
+#main #articles {
+	width: 700px;
+	float: left;
+}
+#main #articles .article {
+	height: 100px;
+	width: 320px;
+	float: left;
+}
+#main #articles .article .description {
+	color: white;
+	width: 200px;
+}
+#main #articles .article .description a {
+	display: block;
+	margin-top: 3px;
+	margin-bottom: 0;
+	text-decoration: none;
+	color: white;
+}
+#main #articles .article .date {
+	color: gray;
+}
+.article:nth-child(odd) {
+	text-align: right;
+	margin-right: 30px;
+}
+.article:nth-child(odd) .icon, .article:nth-child(odd) .description {
+	float: right;
+}
+.article:nth-child(odd) .date, .article:nth-child(odd) a {
+	margin-right: 12px;
+}
+.article:nth-child(even) {
+	text-align: left;
+	margin-left: 30px;
+	margin-top: 50px;
+}
+.article:nth-child(even) .icon, .article:nth-child(even) .description {
+	float: left;
+}
+.article:nth-child(even) .date, .article:nth-child(even) a {
+	margin-left: 8px;
+}
+#post_background {
+	width: 800px;
+	margin: 0 auto;
+	padding-top: 200px;
+	padding-bottom: 200px;
+	background: url('../images/ligne.png') repeat-y 678px top;
+}
+#post {
+	background-color: white;
+	color: black;
+	font-family: 'Oxygen', sans-serif;
+	padding: 20px;
+	border-radius: 10px;
+	border: solid 2px rgb(7,34,47);
+	width: 800px;
+	margin: 0 auto;
+}
+#post img {
+   display:block;
+   margin:auto;
+}
+#header a {
+	position: absolute;
+	width: 600px;
+	height: 180px;
+}
+#disqus_thread {
+  margin: 1em ;
+}
+#disqus_thread>a {
+  font-size: 80%;
+}
+pre {
+	margin: 0 2em 0 2em;
+	padding: 1em;
+	background: rgb(230,244,231);
+	border: 1px solid rgb(89,180,89);
+	white-space: pre-wrap; /* CSS3 */
+	white-space: -moz-pre-wrap; /* Mozilla, post millennium */
+	white-space: -pre-wrap; /* Opera 4-6 */
+	white-space: -o-pre-wrap; /* Opera 7 */
+	word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+h2.bookmark {
+	position: fixed;
+	right: 20px;
+	width: 300px;
+	height: 77px;
+	line-height: 60px;
+	margin: 0;
+	color: #ece8ca;
+	text-align: center;
+	background: url('../images/project-background.png') no-repeat center;
+	z-index: 9999;
+    top: 0px;
+}
+
+#application  h2 {
+	top: 500px;
+	height: 97px;
+	padding-top: 20px;
+	background: url('../images/arrow.png') no-repeat center;
+}
+
+#about, #application {
+	position: fixed;
+	right: 20px;
+	width: 300px;
+	background: url('../images/badges-background.png') repeat-y center;
+	border-radius: 10px;
+	padding-top: 20px;
+	height: 340px;
+	z-index: 9999;
+}
+
+#about {
+	top: 100px;
+}
+
+#application {
+	top: 635px;
+}
+
+.badge {
+	float: left;
+	width: 150px;
+	text-align: center;
+}
+#twitter {
+    text-align: center;
+}
+#Flattr {
+	margin-top: 50px;
+    text-align: center;
+}
+.badge .portrait {
+	background-color: white;
+}
+.badge p {
+	color: white;
+	font-size: small;
+	width: 150px;
+	text-align: center;
+	margin: 5px 0 30px 0;
+}
+#bio {
+	width: 1024px;
+	height: 640px;
+	position: absolute; 
+	left: 50%; 
+	top: 430px;
+	margin: -230px 0 0 -512px;
+	border: solid 1px rgb(100,100,100);
+}
+
+#bio p, #social {
+	margin: 40px 520px 0 50px;
+	font-family: 'Lato', sans-serif;
+	text-align: justify;
+	font-size: larger;
+}
+#bio a {
+	color: rgb(115,230,0);
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)http://code-story.net/2013/02/02/jajascript.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8">
+	<title>Code Story - Location d’astronef sur Jajascript</title>
+	<link type="image/png" rel="shortcut icon" href="http://code-story.net/2013/02/02/fusee-16x16.png">
+	<link rel="stylesheet" href="./Code Story - Location d’astronef sur Jajascript_files/screen.css" type="text/css" media="screen, projection">
+	<link type="text/css" rel="stylesheet" href="./Code Story - Location d’astronef sur Jajascript_files/css">
+	<link rel="alternate" type="application/atom+xml" title="CodeStory Atom Feed" href="http://code-story.net/atom.xml">
+	<script src="./Code Story - Location d’astronef sur Jajascript_files/cb=gapi.loaded_0" async=""></script><script type="text/javascript" async="" src="./Code Story - Location d’astronef sur Jajascript_files/ga.js"></script><script type="text/javascript" async="" src="./Code Story - Location d’astronef sur Jajascript_files/plusone.js" gapi_processed="true"></script><script type="text/javascript" async="" src="./Code Story - Location d’astronef sur Jajascript_files/load.js"></script><script type="text/javascript">
+	/* <![CDATA[ */
+	    (function() {
+	        var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+	        s.type = 'text/javascript';
+	        s.async = true;
+	        s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+	        t.parentNode.insertBefore(s, t);
+	    })();
+	/* ]]> */</script><style type="text/css"></style>
+	<script type="text/javascript" async="" src="./Code Story - Location d’astronef sur Jajascript_files/embed.js"></script><script src="./Code Story - Location d’astronef sur Jajascript_files/alfie.js" async="" charset="UTF-8"></script></head><body style="background-position: 0px 200px, 0px 400px, 0px 1000px, 0px 0px;">
+		<div id="header">
+			<a href="http://code-story.net/index.html"></a>
+		</div>
+		<div id="post_background">
+<div id="post">
+	<h1>Location d’astronef sur Jajascript</h1>
+	<h3>02/02/2013</h3>
+	<div class="plusone"><div style="height: 24px; width: 106px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background-color: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; background-position: initial initial; background-repeat: initial initial;" id="___plusone_0"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 106px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" tabindex="0" vspace="0" width="100%" id="I0_1360850928585" name="I0_1360850928585" src="./Code Story - Location d’astronef sur Jajascript_files/fastbutton.htm" allowtransparency="true" data-gapiattached="true" title="+1"></iframe></div></div>
+	<iframe src="./Code Story - Location d’astronef sur Jajascript_files/saved_resource.htm" class="FlattrButton" width="110" height="20" frameborder="0" scrolling="no" border="0" marginheight="0" marginwidth="0" allowtransparency="true"></iframe>
+	<noscript>&lt;a href="http://flattr.com/thing/1121469/CodeStory" target="_blank"&gt;
+	&lt;img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /&gt;&lt;/a&gt;</noscript>
+	<p>Maintenant que le concours est terminé, nous vous livrons le second exercice auxquel nous avons soumis nos candidats. C’est sur cet exercice en particulier que nous avons augmenté la complexité par petit pas.</p>
+
+<p>Cet exercice est plus complexe que le précédent, notamment lorsque vous devez traiter des niveaux importants de flux d’astronefs. Nous avons soumis nos candidats à effectuer une réponse de traitement de calcul en moins de 30 secondes.</p>
+
+<ol>
+<li>Essayez de résoudre l’exercice, avec le cas de test inclus qui contient 4 trajets.</li>
+
+<li>Essayez avec le ce fichier de <a href="http://code-story.net/data/jajascript-50.zip">50 trajets</a></li>
+
+<li>Puis sur celui-ci de <a href="http://code-story.net/data/jajascript-10k.zip">50000 trajets</a>. (attention 4mo de json, que nous vous avons zippé par respect de bande passante).</li>
+
+<li>Amusez vous avec notre <a href="https://github.com/CodeStory/jajascript-generator">générateur de payload</a>, a tenter des chiffres encore plus grand.</li>
+</ol>
+
+<p>Notez que dans le cas du concours, il convient de répondre en 30 secondes, temps de transport de l’information compris, c’est à dire du payload json final. Vous aurez du mal à reproduire cette contrainte sans un client/serveur distant l’un de l’autre. Mais cela vous donne une idée des difficultés que les joueurs ont rencontrés pour finir cet exercice. Une réponse en moins de 30 secondes du fichier de 50000 trajets lié plus haut, permettait d’obtenir les 10000 points nécessaire pour être en tête.</p>
+
+<p>Sans plus attendre voici l’énoncé que nous avons envoyé il y a 15 jours à nos candidats :</p>
+
+<blockquote>
+<h2 id="location_dastronef_sur_jajascript">Location d’astronef sur Jajascript</h2>
+</blockquote>
+
+<blockquote>
+<p>Votre cousin par alliance, Martin O. sur la planète Jajascript vient de monter sa petite entreprise de vol spatial privée: Jajascript Flight Rental. Il loue aux grosses corporations son astronef lorsqu’elles ont de fortes charges ou un pépin avec leurs propres appareils. Il s’occupe de la maintenance et de l’entretien de son petit astronef. Il ne pouvait s’en payer qu’un pour démarrer.</p>
+
+<p>Ces grosses corporations envoient des commandes de location qui consistent en un intervalle de temps, et le prix qu’ils sont prêts à payer pour louer l’astronef durant cet intervalle.</p>
+
+<p>Les commandes de tous les clients sont connues plusieurs jours à l’avance. Ce qui permet de faire un planning pour une journée. Les commandes viennent de plusieurs sociétés différentes et parfois elles se chevauchent. On ne peut donc pas toutes les honorer.</p>
+
+<p>Idéalement, il faut donc être capable de prendre les plus rentables, histoire de maximiser les gains de sa petite entreprise, et de s’acheter d’autres astronefs. Votre cousin passe des heures à trouver le planning idéal et vous demande <strong>pour un planning donné de calculer une solution qui maximise son gain</strong>.</p>
+
+<h3 id="exemple">Exemple</h3>
+
+<p>Considérez par exemple le cas où la JajaScript Flight Rental a 4 commandes :</p>
+</blockquote>
+
+<pre><code>MONAD42 : heure de départ 0, durée 5, prix 10
+META18 : heure de départ 3, durée 7, prix 14
+LEGACY01 : heure de départ 5, durée 9, prix 8
+YAGNI17 : heure de départ 5, durée 9, prix 7</code></pre>
+
+<blockquote>
+<p>La solution optimale consiste à accepter MONAD42 et LEGACY01, et le revenu est de <code>10 + 8 = 18</code>. Remarquez qu’une solution à partir de MONAD42 et YAGNI17 est faisable (l’avion serait loué sans interruption de 0 à 14) mais non optimale car le bénéfice serait que de 17.</p>
+
+<h3 id="prcisions">Précisions</h3>
+
+<p>L’identifiant d’un vol ne dépasse jamais 50 caractères, les heures de départs, durée et prix sont des entiers positifs raisonnablement grands.</p>
+
+<h3 id="serveur">Serveur</h3>
+
+<p>Votre serveur doit répondre aux requêtes http POST de la forme <code>http://serveur/jajascript/optimize</code> avec un payload de la forme :</p>
+</blockquote>
+<div class="highlight"><pre><code class="json">  <span class="p">[</span>
+    <span class="p">{</span> <span class="nt">"VOL"</span><span class="p">:</span> <span class="s2">"NOM_VOL"</span><span class="p">,</span> <span class="nt">"DEPART"</span><span class="p">:</span> <span class="err">HEURE</span><span class="p">,</span> <span class="nt">"DUREE"</span><span class="p">:</span> <span class="err">DUREE</span><span class="p">,</span> <span class="nt">"PRIX"</span><span class="p">:</span> <span class="err">PRIX</span> <span class="p">},</span> <span class="err">...</span>
+  <span class="p">]</span>
+</code></pre></div>
+<blockquote>
+<p>En reprenant l’exemple ci dessus :</p>
+</blockquote>
+<div class="highlight"><pre><code class="json">  <span class="p">[</span>
+    <span class="p">{</span> <span class="nt">"VOL"</span><span class="p">:</span> <span class="s2">"MONAD42"</span><span class="p">,</span> <span class="nt">"DEPART"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">"DUREE"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nt">"PRIX"</span><span class="p">:</span> <span class="mi">10</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">"VOL"</span><span class="p">:</span> <span class="s2">"META18"</span><span class="p">,</span> <span class="nt">"DEPART"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nt">"DUREE"</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="nt">"PRIX"</span><span class="p">:</span> <span class="mi">14</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">"VOL"</span><span class="p">:</span> <span class="s2">"LEGACY01"</span><span class="p">,</span> <span class="nt">"DEPART"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nt">"DUREE"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="nt">"PRIX"</span><span class="p">:</span> <span class="mi">8</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nt">"VOL"</span><span class="p">:</span> <span class="s2">"YAGNI17"</span><span class="p">,</span> <span class="nt">"DEPART"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nt">"DUREE"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="nt">"PRIX"</span><span class="p">:</span> <span class="mi">7</span> <span class="p">}</span>
+  <span class="p">]</span>
+</code></pre></div>
+<blockquote>
+<p>Vous devrez répondre le résultat suivant :</p>
+</blockquote>
+<div class="highlight"><pre><code class="json">    <span class="p">{</span>
+      <span class="nt">"gain"</span> <span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+      <span class="nt">"path"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"MONAD42"</span><span class="p">,</span><span class="s2">"LEGACY01"</span><span class="p">]</span>
+    <span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>Le gain représentant la somme optimale, path représentant l’ordre des vols.</p>
+
+<p>Bons calculs !</p>
+</blockquote>
+	<p><em><a href="mailto:qualif@code-story.net">David, Eric, Jean-Laurent &amp; Sébastian</a></em></p>
+</div>
+</div>
+
+<script type="text/javascript">
+    var disqus_shortname = 'codestory';
+    var disqus_url = 'http://code-story.net/2013/02/02/jajascript.html';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<script type="text/javascript">
+  window.___gcfg = {lang: 'fr'};
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+	
+	
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-27949651-1']);
+	_gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<script src="./Code Story - Location d’astronef sur Jajascript_files/jquery.js"></script>
+<script src="./Code Story - Location d’astronef sur Jajascript_files/codestory.js"></script>
+
+</body></html>
