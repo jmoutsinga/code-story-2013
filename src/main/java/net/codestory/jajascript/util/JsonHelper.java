@@ -9,6 +9,8 @@ import java.util.List;
 
 import javax.servlet.ServletInputStream;
 
+import net.codestory.jajascript.domain.RentalWish;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -24,8 +26,8 @@ public class JsonHelper {
         jsonHelper = new Gson();
     }
 
-    public <T> List<T> fromJsonAsStream(ServletInputStream inputStream) {
-        Type type = new TypeToken<List<T>>() {
+    public List<RentalWish> fromJsonAsStream(ServletInputStream inputStream) {
+        Type type = new TypeToken<List<RentalWish>>() {
         }.getType();
         return jsonHelper.fromJson(new InputStreamReader(inputStream), type);
     }
