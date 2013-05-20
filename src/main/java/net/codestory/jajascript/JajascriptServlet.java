@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.codestory.jajascript.domain.OptimalSpaceshiftPath;
 import net.codestory.jajascript.domain.RentalWish;
-import net.codestory.jajascript.optimizer.NaiveRentOptimizer;
 import net.codestory.jajascript.optimizer.RentOptimizer;
 import net.codestory.jajascript.util.JsonHelper;
 
@@ -49,7 +48,7 @@ public class JajascriptServlet extends HttpServlet {
 
         List<RentalWish> bestRentalWishes = new RentalWishFilterByPeriod(rentalWishes).doFilter();
 
-        RentOptimizer rentOptimizer = new NaiveRentOptimizer(bestRentalWishes);
+        RentOptimizer rentOptimizer = new AveragePriceOptimizer(bestRentalWishes);
         OptimalSpaceshiftPath result = rentOptimizer.optimize();
 
         response.setContentType("text/plain");

@@ -7,7 +7,7 @@ package net.codestory.jajascript.domain;
  * @author jmoutsinga
  * 
  */
-public class RentalWish implements Comparable<RentalWish> {
+public class RentalWish {
 
     private String VOL;
     private int DEPART;
@@ -15,6 +15,7 @@ public class RentalWish implements Comparable<RentalWish> {
     private int PRIX;
 
     private int endHour = -1;
+    private Float averagePrice;
 
     public RentalWish() {
 
@@ -59,6 +60,13 @@ public class RentalWish implements Comparable<RentalWish> {
         return endHour;
     }
 
+    public Float getAveragePrice() {
+        if (averagePrice == null) {
+            averagePrice = Float.valueOf(PRIX / DUREE);
+        }
+        return averagePrice;
+    }
+
     public Period getPeriod() {
         return new Period(getStartHour(), getEndHour());
     }
@@ -77,22 +85,5 @@ public class RentalWish implements Comparable<RentalWish> {
 
     public boolean isAfter(RentalWish rentRequest) {
         return getStartHour() >= rentRequest.getEndHour();
-    }
-
-    @Override
-    public int compareTo(RentalWish other) {
-        if (getStartHour() < other.getStartHour()) {
-            return -1;
-        } else if (getStartHour() > other.getStartHour()) {
-            return 1;
-        } else {
-            if (getPrice() < other.getPrice()) {
-                return -1;
-            } else if (getPrice() > other.getPrice()) {
-                return 1;
-            } else {
-                return 0;
-            }
-        }
     }
 }
