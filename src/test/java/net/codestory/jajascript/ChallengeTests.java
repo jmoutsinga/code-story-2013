@@ -8,7 +8,7 @@ import static org.fest.assertions.Assertions.assertThat;
 import java.io.IOException;
 import java.io.InputStream;
 
-import net.codestory.jajascript.server.HttpServerWrapper;
+import net.codestory.jajascript.jettyserver.JettyServerWrapper;
 import net.codestory.jajascript.util.FileUtil;
 import net.codestory.jajascript.util.JsonHelper;
 
@@ -43,7 +43,7 @@ public class ChallengeTests {
 
     private WebConversation webConversation;
 
-    private static HttpServerWrapper serverInstance;
+    private static JettyServerWrapper serverInstance;
 
     @BeforeClass
     public static void initServer() {
@@ -54,7 +54,7 @@ public class ChallengeTests {
 
     private static void bootstrapServer() {
         if (serverInstance == null) {
-            serverInstance = new HttpServerWrapper();
+            serverInstance = new JettyServerWrapper();
             serverInstance.start();
         }
     }

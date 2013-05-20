@@ -1,7 +1,7 @@
 /**
  * 
  */
-package net.codestory.jajascript;
+package net.codestory.jajascript.filter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public class RentalWishFilterByPeriod {
     }
 
     public List<RentalWish> doFilter() {
-        logger.debug("Filtering the flights request...");
+        logger.debug("Filtering rental wishes request...");
         TreeMap<Period, RentalWish> bestRentRequestByPeriod = new TreeMap<>();
         for (RentalWish rentRequest : rentalWishes) {
             RentalWish current = bestRentRequestByPeriod.get(rentRequest.getPeriod());
@@ -35,7 +35,7 @@ public class RentalWishFilterByPeriod {
                 bestRentRequestByPeriod.put(rentRequest.getPeriod(), rentRequest);
             }
         }
-        logger.info("After filtering, keeping {} best rent request", bestRentRequestByPeriod.size());
+        logger.info("After filtering, keeping {} best rent request on {} initials", bestRentRequestByPeriod.size(), rentalWishes.size());
         return new ArrayList<RentalWish>(bestRentRequestByPeriod.values());
     }
 }

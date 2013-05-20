@@ -3,11 +3,10 @@
  */
 package net.codestory.jajascript.util;
 
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.List;
-
-import javax.servlet.ServletInputStream;
 
 import net.codestory.jajascript.domain.RentalWish;
 
@@ -26,7 +25,7 @@ public class JsonHelper {
         jsonHelper = new Gson();
     }
 
-    public List<RentalWish> fromJsonAsStream(ServletInputStream inputStream) {
+    public List<RentalWish> fromJsonAsStream(InputStream inputStream) {
         Type type = new TypeToken<List<RentalWish>>() {
         }.getType();
         return jsonHelper.fromJson(new InputStreamReader(inputStream), type);

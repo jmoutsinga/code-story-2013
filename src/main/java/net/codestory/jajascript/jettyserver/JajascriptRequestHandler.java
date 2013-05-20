@@ -1,7 +1,7 @@
 /**
  * 
  */
-package net.codestory.jajascript.server;
+package net.codestory.jajascript.jettyserver;
 
 import java.io.IOException;
 

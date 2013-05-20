@@ -1,6 +1,7 @@
 package net.codestory.jajascript;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.codestory.jajascript.domain.OptimalSpaceshiftPath;
 import net.codestory.jajascript.domain.RentalWish;
+import net.codestory.jajascript.filter.RentalWishFilterByPeriod;
 import net.codestory.jajascript.optimizer.RentOptimizer;
 import net.codestory.jajascript.util.JsonHelper;
 
@@ -48,7 +50,15 @@ public class JajascriptServlet extends HttpServlet {
 
         List<RentalWish> bestRentalWishes = new RentalWishFilterByPeriod(rentalWishes).doFilter();
 
-        RentOptimizer rentOptimizer = new AveragePriceOptimizer(bestRentalWishes);
+        RentOptimizer rentOptimizer = new RentOptimizer() {
+
+            @Override
+            public OptimalSpaceshiftPath optimize() {
+                return new OptimalSpaceshiftPath(0, Collections.<String> emptyList());
+            }
+
+        };
+
         OptimalSpaceshiftPath result = rentOptimizer.optimize();
 
         response.setContentType("text/plain");

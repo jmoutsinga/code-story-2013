@@ -1,7 +1,7 @@
 /**
  * 
  */
-package net.codestory.jajascript.server;
+package net.codestory.jajascript.jettyserver;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerList;
@@ -14,9 +14,9 @@ import org.slf4j.LoggerFactory;
  * @author Julien Moutsinga (aka jmoutsinga)
  * 
  */
-public class HttpServerWrapper implements Runnable {
+public class JettyServerWrapper implements Runnable {
 
-    private final Logger logger = LoggerFactory.getLogger(HttpServerWrapper.class);
+    private final Logger logger = LoggerFactory.getLogger(JettyServerWrapper.class);
 
     public static int SERVER_PORT = 8080;
 
@@ -25,7 +25,7 @@ public class HttpServerWrapper implements Runnable {
     private Thread serverThread;
 
     public void start() {
-        serverThread = new Thread(new HttpServerWrapper());
+        serverThread = new Thread(new JettyServerWrapper());
         serverThread.start();
     }
 
@@ -54,7 +54,6 @@ public class HttpServerWrapper implements Runnable {
         if (serverInstance == null) {
             serverInstance = new Server(SERVER_PORT);
             HandlerList handlers = new HandlerList();
-            handlers.addHandler(new HelloHttpRequestHandler());
             handlers.addHandler(new JajascriptRequestHandler());
             serverInstance.setHandler(handlers);
             try {

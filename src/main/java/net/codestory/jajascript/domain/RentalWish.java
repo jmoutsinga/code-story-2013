@@ -15,7 +15,7 @@ public class RentalWish {
     private int PRIX;
 
     private int endHour = -1;
-    private Float averagePrice;
+    private Float averageHourPrice;
 
     public RentalWish() {
 
@@ -61,10 +61,10 @@ public class RentalWish {
     }
 
     public Float getAveragePrice() {
-        if (averagePrice == null) {
-            averagePrice = Float.valueOf(PRIX / DUREE);
+        if (averageHourPrice == null) {
+            averageHourPrice = Float.valueOf(PRIX / DUREE);
         }
-        return averagePrice;
+        return averageHourPrice;
     }
 
     public Period getPeriod() {

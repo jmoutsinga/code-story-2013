@@ -1,4 +1,4 @@
-package net.codestory.jajascript.server;
+package net.codestory.jajascript.jettyserver;
 
 public class ServerBootstrap {
 
@@ -6,7 +6,7 @@ public class ServerBootstrap {
      * @param args
      */
     public static void main(String[] args) {
-        new HttpServerWrapper().start();
+        new JettyServerWrapper().start();
 
     }
 
