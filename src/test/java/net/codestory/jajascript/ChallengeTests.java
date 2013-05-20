@@ -8,9 +8,11 @@ import static org.fest.assertions.Assertions.assertThat;
 import java.io.IOException;
 import java.io.InputStream;
 
+import net.codestory.jajascript.server.HttpServerWrapper;
 import net.codestory.jajascript.util.FileUtil;
 import net.codestory.jajascript.util.JsonHelper;
 
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
@@ -41,10 +43,28 @@ public class ChallengeTests {
 
     private WebConversation webConversation;
 
+    private static HttpServerWrapper serverInstance;
+
     @BeforeClass
     public static void initServer() {
         server = System.getProperty(PROP_SERVER, DEFAULT_SERVER);
         port = System.getProperty(PROP_SERVER_PORT, DEFAULT_SERVER_PORT);
+        bootstrapServer();
+    }
+
+    private static void bootstrapServer() {
+        if (serverInstance == null) {
+            serverInstance = new HttpServerWrapper();
+            serverInstance.start();
+        }
+    }
+
+    @AfterClass
+    public static void finalizeServer() {
+        if (serverInstance != null) {
+            serverInstance.stop();
+            serverInstance = null;
+        }
     }
 
     @Before
@@ -66,7 +86,8 @@ public class ChallengeTests {
         checkResponse(responseContent, expectedResult);
     }
 
-    @Test(timeout = 30000)
+    // @Test(timeout = 30000)
+    @Test
     public void _2_play50() throws IOException, SAXException {
         String responseContent = playRequest("jajascript-50.json");
         String expectedResult = FileUtil.fileContentToString("jajascript-50-response.json");
