@@ -1,4 +1,8 @@
 {
-  "gain":27,
-  "path":["alive-rattrap-77","homeless-neck-19","mammoth-tomato-66"]
+    "gain":27,
+    "path":[
+        "alive-rattrap-77",
+        "homeless-neck-19",
+        "mammoth-tomato-66"
+    ]
 }

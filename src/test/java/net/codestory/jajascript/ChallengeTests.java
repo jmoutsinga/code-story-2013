@@ -72,7 +72,7 @@ public class ChallengeTests {
         webConversation = new WebConversation();
     }
 
-    @Test
+    @Test(timeout = 30000)
     public void _1_sample() throws IOException, SAXException {
         String responseContent = playRequest("jajascript-sample.json");
         String expectedResult = FileUtil.fileContentToString("jajascript-sample-response.json");
@@ -86,8 +86,7 @@ public class ChallengeTests {
         checkResponse(responseContent, expectedResult);
     }
 
-    // @Test(timeout = 30000)
-    @Test
+    @Test(timeout = 30000)
     public void _2_play50() throws IOException, SAXException {
         String responseContent = playRequest("jajascript-50.json");
         String expectedResult = FileUtil.fileContentToString("jajascript-50-response.json");
