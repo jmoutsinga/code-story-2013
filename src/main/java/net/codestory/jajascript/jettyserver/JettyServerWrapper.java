@@ -18,7 +18,7 @@ public class JettyServerWrapper implements Runnable {
 
     private final Logger logger = LoggerFactory.getLogger(JettyServerWrapper.class);
 
-    public static int SERVER_PORT = 8080;
+    public static int SERVER_PORT = 8181;
 
     private Server serverInstance;
 

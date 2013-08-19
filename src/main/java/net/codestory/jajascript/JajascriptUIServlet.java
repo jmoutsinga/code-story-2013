@@ -1,34 +1,26 @@
 package net.codestory.jajascript;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import net.codestory.jajascript.domain.OptimalSpaceshiftPath;
-import net.codestory.jajascript.util.JsonHelper;
+import javax.servlet.http.Part;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * Servlet implementation class JajascriptServlet
- */
-@WebServlet("/optimize")
-public class JajascriptServlet extends HttpServlet {
+@WebServlet("/readInputFile")
+@MultipartConfig
+public class JajascriptUIServlet extends HttpServlet {
 
-    private static final long serialVersionUID = -8018062926565055536L;
+    private static final long serialVersionUID = -6159132766875052109L;
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public JajascriptServlet() {
-        super();
-    }
 
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -43,13 +35,19 @@ public class JajascriptServlet extends HttpServlet {
      *      response)
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("application/json");
 
-        JajascriptHttpRequestHandler requestHandler = new JajascriptHttpRequestHandler();
-        OptimalSpaceshiftPath result = requestHandler.handle(request.getInputStream());
+        // Debug.debug(request);
 
-        response.setContentType("text/plain");
-        response.setStatus(HttpServletResponse.SC_OK);
-        JsonHelper helper = new JsonHelper();
-        response.getWriter().append(helper.toJsonString(result));
+        final Part filePart = request.getPart("sendFile");
+
+        byte[] buffer = new byte[1024];
+        ServletOutputStream outputStream = response.getOutputStream();
+        InputStream inputStream = filePart.getInputStream();
+        while (inputStream.read(buffer) != -1) {
+            outputStream.write(buffer);
+        }
+        outputStream.flush();
+        outputStream.close();
     }
 }

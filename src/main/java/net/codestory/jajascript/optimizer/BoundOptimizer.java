@@ -7,7 +7,10 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import net.codestory.jajascript.domain.OptimalSpaceshiftPath;
+import net.codestory.jajascript.domain.Path;
 import net.codestory.jajascript.domain.RentalWish;
+import net.codestory.jajascript.ui.AsciiRepresentation;
+import net.codestory.jajascript.ui.Timeline;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,17 +19,36 @@ public class BoundOptimizer implements RentOptimizer {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private List<RentalWish> rentalWishes;
+    private Timeline timeline;
 
     public BoundOptimizer(List<RentalWish> rentalWishes) {
         this.rentalWishes = rentalWishes;
+        timeline = createTimeLine();
+    }
+
+    private Timeline createTimeLine() {
+        int minStartHour = -1;
+        int maxEndHour = -1;
+        for (RentalWish rentalWish : rentalWishes) {
+            int startHour = rentalWish.getStartHour();
+            if (minStartHour == -1 || minStartHour > startHour) {
+                minStartHour = startHour;
+            }
+            int endHour = rentalWish.getEndHour();
+            if (maxEndHour == -1 || maxEndHour < endHour) {
+                maxEndHour = endHour;
+            }
+        }
+        return new Timeline(rentalWishes.size(), minStartHour, maxEndHour);
     }
 
     @Override
     public OptimalSpaceshiftPath optimize() {
         // Organize by startHour
-        Map<Integer, RentalWishesByStartHour> byStartHour = new TreeMap<Integer, RentalWishesByStartHour>();
+        TreeMap<Integer, RentalWishesByStartHour> byStartHour = new TreeMap<Integer, RentalWishesByStartHour>();
         for (RentalWish rentalWish : rentalWishes) {
             int startHour = rentalWish.getStartHour();
+
             RentalWishesByStartHour wishesByStartHour = byStartHour.get(startHour);
             if (wishesByStartHour == null) {
                 wishesByStartHour = new RentalWishesByStartHour(startHour);
@@ -34,6 +56,9 @@ public class BoundOptimizer implements RentOptimizer {
             wishesByStartHour.add(rentalWish);
             byStartHour.put(startHour, wishesByStartHour);
         }
+
+        AsciiRepresentation concreteUi = new AsciiRepresentation(System.err, timeline);
+        timeline.addObserver(concreteUi);
 
         // Compute paths by bounding from rentalWishes to rentalWishes
 
@@ -73,6 +98,7 @@ public class BoundOptimizer implements RentOptimizer {
         RentalWishesByStartHour nextByStartHour = byStartHour.get(nextStartHour);
         if (nextByStartHour == null) {
             result.add(path);
+            timeline.addPath(path);
         } else {
             List<RentalWish> wishes = nextByStartHour.getRentalWishes();
             for (RentalWish rentalWish : wishes) {

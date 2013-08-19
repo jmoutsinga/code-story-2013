@@ -86,4 +86,8 @@ public class RentalWish {
     public boolean isAfter(RentalWish rentRequest) {
         return getStartHour() >= rentRequest.getEndHour();
     }
+
+    public int getDuration() {
+        return DUREE;
+    }
 }

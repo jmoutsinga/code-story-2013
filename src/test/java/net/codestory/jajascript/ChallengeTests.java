@@ -20,6 +20,7 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.xml.sax.SAXException;
 
+import com.meterware.httpunit.HttpUnitOptions;
 import com.meterware.httpunit.PostMethodWebRequest;
 import com.meterware.httpunit.WebConversation;
 import com.meterware.httpunit.WebRequest;
@@ -36,7 +37,7 @@ public class ChallengeTests {
     private static final String PROP_SERVER_PORT = "port";
 
     public static final String DEFAULT_SERVER = "localhost";
-    public static final String DEFAULT_SERVER_PORT = "8080";
+    public static final String DEFAULT_SERVER_PORT = "8181";
 
     private static String server;
     private static String port;
@@ -69,6 +70,7 @@ public class ChallengeTests {
 
     @Before
     public void setup() {
+        HttpUnitOptions.setScriptingEnabled(false);
         webConversation = new WebConversation();
     }
 

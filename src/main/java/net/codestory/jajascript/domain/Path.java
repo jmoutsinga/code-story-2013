@@ -1,9 +1,8 @@
-package net.codestory.jajascript.optimizer;
+package net.codestory.jajascript.domain;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import net.codestory.jajascript.domain.RentalWish;
 
 public class Path {
 
@@ -55,6 +54,10 @@ public class Path {
 
     public Integer getEndHour() {
         return flights.get(flights.size() - 1).getEndHour();
+    }
+
+    public List<RentalWish> getFlights() {
+        return flights;
     }
 
     @Override

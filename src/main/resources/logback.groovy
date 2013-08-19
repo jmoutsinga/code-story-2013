@@ -25,5 +25,6 @@ root(Level.INFO, ["CONSOLE"])
 
 logger("net.codestory.jajascript", Level.DEBUG)
 logger("net.codestory.jajascript.Path", Level.DEBUG)
+logger("net.codestory.jajascript.ui", Level.INFO)
 logger("net.codestory.jajascript.optimizer", Level.DEBUG)
 logger("net.codestory.jajascript.BestPathFinder", Level.DEBUG)
