@@ -31,22 +31,6 @@
 		<section>
 			<input id="sendFile" name="sendFile" type="file" />
 			<script type="text/javascript">
-				function readSingleFile(evt) {
-					// Retrieve the first (and only!) File from the FileList object
-					var f = evt.target.files[0];
-
-					if (f) {
-						var reader = new FileReader();
-						reader.onload = function(e) {
-							var contents = e.target.result;
-							document.getElementById('fileContent').innerHTML = contents;
-						}
-						reader.readAsText(f);
-					} else {
-						alert("Failed to load file");
-					}
-				}
-
 				document.getElementById('sendFile').addEventListener('change',
 						readSingleFile, false);
 			</script>
@@ -55,8 +39,9 @@
 
 			<form id="form2" action="findOptimalPath" method="post">
 				<textarea id="fileContent" name="fileContent" cols="100" rows="15"></textarea>
-				<br /> <input type="submit" value="Optimize">
+				<br />
 			</form>
+			<input type="button" value="Optimize" onclick="doOptimize()">
 		</section>
 		<br />
 		<section>
