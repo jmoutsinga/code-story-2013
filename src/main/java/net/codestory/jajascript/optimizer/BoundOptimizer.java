@@ -44,6 +44,11 @@ public class BoundOptimizer implements RentOptimizer {
 
     @Override
     public OptimalSpaceshiftPath optimize() {
+
+        if (rentalWishes.isEmpty()) {
+            return OptimalSpaceshiftPath.NULL;
+        }
+
         // Organize by startHour
         TreeMap<Integer, RentalWishesByStartHour> byStartHour = new TreeMap<Integer, RentalWishesByStartHour>();
         for (RentalWish rentalWish : rentalWishes) {

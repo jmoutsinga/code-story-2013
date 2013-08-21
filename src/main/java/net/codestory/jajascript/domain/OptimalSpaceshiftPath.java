@@ -3,6 +3,7 @@
  */
 package net.codestory.jajascript.domain;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -11,6 +12,7 @@ import java.util.List;
  */
 public class OptimalSpaceshiftPath {
 
+    public static final OptimalSpaceshiftPath NULL = new OptimalSpaceshiftPath(0, Collections.<String> emptyList());
     private final long gain;
     private final List<String> path;
 

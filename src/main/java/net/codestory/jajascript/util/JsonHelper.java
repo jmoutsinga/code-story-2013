@@ -6,6 +6,7 @@ package net.codestory.jajascript.util;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
+import java.util.Collections;
 import java.util.List;
 
 import net.codestory.jajascript.domain.RentalWish;
@@ -28,7 +29,8 @@ public class JsonHelper {
     public List<RentalWish> fromJsonAsStream(InputStream inputStream) {
         Type type = new TypeToken<List<RentalWish>>() {
         }.getType();
-        return jsonHelper.fromJson(new InputStreamReader(inputStream), type);
+        List<RentalWish> result = jsonHelper.fromJson(new InputStreamReader(inputStream), type);
+        return result == null ? Collections.<RentalWish> emptyList() : result;
     }
 
     public <T> T fromJson(String jsonString, Class<T> clazz) {
