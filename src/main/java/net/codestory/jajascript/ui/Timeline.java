@@ -5,6 +5,7 @@ package net.codestory.jajascript.ui;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Observable;
@@ -85,5 +86,9 @@ public class Timeline extends Observable {
 
     public boolean hasChanged() {
         return super.hasChanged();
+    }
+
+    public Iterator<RentalWish> flightIterator() {
+        return byModification.values().iterator();
     }
 }

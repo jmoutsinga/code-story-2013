@@ -115,4 +115,9 @@ public class BoundOptimizer implements RentOptimizer {
         return result;
     }
 
+    @Override
+    public Timeline getResultedTimeline() {
+        return timeline;
+    }
+
 }

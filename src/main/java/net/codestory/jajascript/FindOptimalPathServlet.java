@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.codestory.jajascript.domain.OptimalSpaceshiftPath;
+import net.codestory.jajascript.ui.Timeline;
+import net.codestory.jajascript.ui.chronoline.ChronolineAdapter;
+import net.codestory.jajascript.ui.chronoline.ChronolineData;
 import net.codestory.jajascript.util.JsonHelper;
 
 import org.slf4j.Logger;
@@ -44,10 +46,14 @@ public class FindOptimalPathServlet extends HttpServlet {
         // Debug.debug(request);
         String fileContent = request.getParameter("fileContent");
 
-        JajascriptHttpRequestHandler requestHandler = new JajascriptHttpRequestHandler();
-        OptimalSpaceshiftPath result = requestHandler.handle(new ByteArrayInputStream(fileContent.getBytes()));
+        TimelineRequestHandler requestHandler = new TimelineRequestHandler();
+        Timeline timeline = requestHandler.handle(new ByteArrayInputStream(fileContent.getBytes()));
+        ChronolineAdapter adapter = new ChronolineAdapter(timeline.getBegin());
+        ChronolineData data = adapter.toChronolineData(timeline);
         JsonHelper jsonHelper = new JsonHelper();
-        response.getOutputStream().write(jsonHelper.toJsonString(result).getBytes());
+        String jsonString = jsonHelper.toJsonString(data);
+        logger.debug("json result = {}", jsonString);
+        response.getOutputStream().write(jsonString.getBytes());
     }
 
 }
