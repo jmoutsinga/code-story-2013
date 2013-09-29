@@ -1,51 +1,4 @@
-function fillFileContent() {
 
-	// select the form
-	var $form = $('#form1');
-
-	var formData = new FormData();
-	formData.append('sendFile', $('#sendFile')[0].files[0]);
-
-	// implement the callback on submit
-	$form.on('submit', function() {
-
-		$.ajax({
-			url : $(this).attr('action'),
-			enctype : 'multipart/form-data',
-			type : $(this).attr('method'),
-			data : formData,
-			success : completeHandler,
-			error : errorHandler,
-			// Options to tell JQuery not to process data or worry about
-			// content-type
-			cache : false,
-			contentType : false,
-			processData : false
-
-		});
-		return false;
-	});
-
-	// submit the form
-	$form.trigger('submit');
-
-}
-
-function completeHandler(data, status, jqXHR) {
-	alert('completeHandler');
-	alert(data);
-}
-
-function beforeSendHandler() {
-	alert('beforeSendHandler');
-}
-
-function errorHandler(jqXHR, status, error) {
-	alert('errorHandler');
-	alert(status);
-	alert(error);
-
-}
 /**
  * Responsible to put content of the loaded file in the textarea.
  */
@@ -84,21 +37,36 @@ function doOptimize() {
 
 function drawTimeLine(data) {
 	
-	var events = new Array[data.lenght];
+	var chronolineEvents = new Array(data.events.length);
 	
-	var i = 0;
-	for (event in data) {
-		events[i] = computeEvent(event);
-		i++;
+	var events = data.events;
+	
+	for (var i = 0; i < events.length; i++) {
+		chronolineEvents[i] = computeEvent(events[i]);
 	}
 	
+	var sections = [
+			{
+				dates : [ new Date(2013, 8, 28), new Date(2014, 9, 1) ],
+				title : "Section 1",
+				section : 0,
+				attrs : {
+					fill : "#dddddd"
+				}
+			}];
 	
-	
-	var timeline1 = new Chronoline(document
-			.getElementById("target1"), events, {
+//	var parent = document.getElementById("timelineContainer");
+//	var target = document.getElementById("target1");
+//	var emptyDiv = document.createElement("div");
+//	parent.replaceChild(emptyDiv, target);
+	$('#target1').empty();
+	var timeline1 = new Chronoline(document.getElementById("target1"),
+		chronolineEvents,
+		{
+	    	visibleSpan: DAY_IN_MILLISECONDS * 366,
 		animated : true,
 		tooltips : true,
-		defaultStartDate : new Date(2012, 3, 5),
+		defaultStartDate : new Date(2013, 8, 28),
 		sections : sections,
 		sectionLabelAttrs : {
 			'fill' : '#997e3d',
@@ -111,7 +79,22 @@ function drawTimeLine(data) {
 
 function computeEvent(event) {
 	// {"period":{"startDate":"2013/09/10","endDate":"2013/09/12"},"title":"terrible-toadstool-16 [$ 6]"}
-	var event = 
+    
+    // expected
+    /* 
+{
+	dates : [ new Date(2011, 2, 31) ],
+	title : "2011 Season Opener",
+	section : 0
+} 
+     */
+
+    var title = event.title;
+    var startDate = event.period.startDate;
+    var endDate = event.period.endDate;
+    
+    var result =  {"dates" : [parseDate(startDate), parseDate(endDate)], "title" : title, section : 0  };
+    return result;
 }
 
 

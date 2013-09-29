@@ -28,7 +28,7 @@ public class ChronolineAdapter {
 
     public ChronolineData toChronolineData(Timeline timeline) {
 
-        ChronolineData result = new ChronolineData();
+        ChronolineData result = new ChronolineData(getRefDate().getTime());
         Iterator<RentalWish> iterator = timeline.flightIterator();
         while (iterator.hasNext()) {
             RentalWish next = iterator.next();

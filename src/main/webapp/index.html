@@ -7,64 +7,63 @@
 <title>Jajascript cool ui</title>
 
 <!-- Css for the js timeline  -->
-<link rel="stylesheet" type="text/css"
-	href="./js/chronoline/jquery.qtip.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="js/chronoline/chronoline.css" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./js/chronoline/jquery.qtip.min.css" />
+<link rel="stylesheet" type="text/css" href="js/chronoline/chronoline.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="js/jajascript.js"></script>
 
 </head>
 
 <body>
 
-	<!-- HEADER -->
-	<div>
-		<header>
-			<h1>Jajascript : an astronef rental optimizer</h1>
-		</header>
-	</div>
+  <!-- HEADER -->
+  <div>
+    <header>
+      <h1>Jajascript : an astronef rental optimizer</h1>
+    </header>
+  </div>
 
-	<!-- MAIN CONTENT -->
-	<div>
-		<section>
-			<input id="sendFile" name="sendFile" type="file" />
-			<script type="text/javascript">
-				document.getElementById('sendFile').addEventListener('change',
-						readSingleFile, false);
+  <!-- MAIN CONTENT -->
+  <div>
+    <section>
+      <input id="sendFile" name="sendFile" type="file" />
+      <script type="text/javascript">
+			    document.getElementById('sendFile')
+				    .addEventListener('change', readSingleFile,
+					    false);
 			</script>
-			<br /> <br />
-			<!-- 			<progress></progress> -->
+      <br /> <br />
+      <!-- 			<progress></progress> -->
 
-			<form id="form2" action="findOptimalPath" method="post">
-				<textarea id="fileContent" name="fileContent" cols="100" rows="15"></textarea>
-				<br />
-			</form>
-			<input type="button" value="Optimize" onclick="doOptimize()">
-		</section>
-		<br />
-		<section>
-			<h2>Timeline result</h2>
-			<div id="target1"></div>
-		</section>
-		<br />
-	</div>
+      <form id="form2" action="findOptimalPath" method="post">
+        <textarea id="fileContent" name="fileContent" cols="100" rows="15"></textarea>
+        <br />
+      </form>
+      <input type="button" value="Optimize" onclick="doOptimize()">
+    </section>
+    <br />
+    <section>
+      <h2>Timeline result</h2>
+      <div id="target1"></div>
+    </section>
+    <br />
+  </div>
 
-	<!-- FOOTER  -->
-	<div>
-		<footer>
-			<p>Footer here</p>
-		</footer>
-	</div>
+  <!-- FOOTER  -->
+  <div>
+    <footer>
+      <p>Footer here</p>
+    </footer>
+  </div>
 
-	<script type="text/javascript" src="js/chronoline/jquery.qtip.min.js"></script>
+  <script type="text/javascript" src="js/chronoline/jquery.qtip.min.js"></script>
 
-	<script type="text/javascript" src="js/chronoline/raphael-min.js"></script>
+  <script type="text/javascript" src="js/chronoline/raphael-min.js"></script>
 
-	<script type="text/javascript" src="js/chronoline/chronoline.js"></script>
+  <script type="text/javascript" src="js/chronoline/chronoline.js"></script>
 
-	<script type="text/javascript">
+  <script type="text/javascript">
+	    
 	</script>
 
 </body>

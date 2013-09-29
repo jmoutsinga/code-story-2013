@@ -3,7 +3,9 @@
  */
 package net.codestory.jajascript.ui.chronoline;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -12,9 +14,13 @@ import java.util.List;
  */
 public class ChronolineData {
 
+	
+	private String refDate;
     private List<ChronolineEvent> events;
 
-    public ChronolineData() {
+    public ChronolineData(Date refDate) {
+    	
+    	this.refDate = new SimpleDateFormat("yyyy/MM/dd").format(refDate);
         events = new ArrayList<ChronolineEvent>();
     }
 
