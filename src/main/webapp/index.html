@@ -1,70 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
 
 <head>
 <meta charset='utf-8' />
 <meta http-equiv="X-UA-Compatible" content="chrome=1" />
 <title>Jajascript cool ui</title>
 
-<!-- Css for the js timeline  -->
-<link rel="stylesheet" type="text/css" href="./js/chronoline/jquery.qtip.min.css" />
-<link rel="stylesheet" type="text/css" href="js/chronoline/chronoline.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="js/jajascript.js"></script>
+<!-- JQuery -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>
 
+<!-- JQuery UI -->
+<link rel="stylesheet" href="./js/jquery-ui-1.10.3.custom/css/ui-lightness/jquery-ui-1.10.3.custom.css">
+<script type="text/javascript" src="./js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js"></script>
+
+<!-- Application JS -->
+<script type="text/javascript" src="./js/jajascript.js"></script>
+
+<!-- Angular 1.2.7 -->
+<script type="text/javascript" src="./js/angular-1.2.7.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./style/jajascript.css">
+
+<!-- Initializing tabs -->
+<script>
+	$(function() {
+		$("#tabs").tabs();
+	});
+</script>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <div>
-    <header>
-      <h1>Jajascript : an astronef rental optimizer</h1>
-    </header>
-  </div>
+	<!-- HEADER -->
+	<div>
+		<header>
+			<h1>Jajascript : an astronef rental optimizer</h1>
+		</header>
+	</div>
 
-  <!-- MAIN CONTENT -->
-  <div>
-    <section>
-      <input id="sendFile" name="sendFile" type="file" />
-      <script type="text/javascript">
-			    document.getElementById('sendFile')
-				    .addEventListener('change', readSingleFile,
-					    false);
+	<!-- MAIN CONTENT -->
+	<div>
+		<section>
+			<input id="sendFile" name="sendFile" type="file" />
+			<script type="text/javascript">
+				document.getElementById('sendFile').addEventListener('change',
+						readSingleFile, false);
 			</script>
-      <br /> <br />
-      <!-- 			<progress></progress> -->
+			<br /> <br />
+			<div id="tabs">
+				<ul>
+					<li><a href="#rawData">Raw data</a></li>
+					<li><a href="#flightsList">Flights list</a></li>
+				</ul>
+				<div id="rawData">
+					<form id="form2" action="findOptimalPath" method="post">
+						<textarea id="fileContent" name="fileContent" cols="100" rows="15"></textarea>
+						<br />
+					</form>
+				</div>
+				<div id="flightsList">
+					<p>Here will be a graphical list of all flights in the file</p>
+				</div>
+			</div>
+			<br /> <input type="button" value="Optimize" onclick="doOptimize()">
+		</section>
+		<br />
+		<section>
+			<h2>Result</h2>
+			<div id="target1"></div>
+		</section>
+		<br />
+	</div>
 
-      <form id="form2" action="findOptimalPath" method="post">
-        <textarea id="fileContent" name="fileContent" cols="100" rows="15"></textarea>
-        <br />
-      </form>
-      <input type="button" value="Optimize" onclick="doOptimize()">
-    </section>
-    <br />
-    <section>
-      <h2>Timeline result</h2>
-      <div id="target1"></div>
-    </section>
-    <br />
-  </div>
-
-  <!-- FOOTER  -->
-  <div>
-    <footer>
-      <p>Footer here</p>
-    </footer>
-  </div>
-
-  <script type="text/javascript" src="js/chronoline/jquery.qtip.min.js"></script>
-
-  <script type="text/javascript" src="js/chronoline/raphael-min.js"></script>
-
-  <script type="text/javascript" src="js/chronoline/chronoline.js"></script>
-
-  <script type="text/javascript">
-	    
-	</script>
-
+	<!-- FOOTER  -->
+	<div>
+		<footer>
+			<p>
+				A <a href="https://github.com/jmoutsinga">Julien Moutsinga</a> tiny
+				poc
+			</p>
+		</footer>
+	</div>
 </body>
 </html>
