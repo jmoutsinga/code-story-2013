@@ -9,7 +9,6 @@ import java.util.TreeMap;
 import net.codestory.jajascript.domain.OptimalSpaceshiftPath;
 import net.codestory.jajascript.domain.Path;
 import net.codestory.jajascript.domain.RentalWish;
-import net.codestory.jajascript.ui.AsciiRepresentation;
 import net.codestory.jajascript.ui.Timeline;
 
 import org.slf4j.Logger;
@@ -62,8 +61,9 @@ public class BoundOptimizer implements RentOptimizer {
             byStartHour.put(startHour, wishesByStartHour);
         }
 
-        AsciiRepresentation concreteUi = new AsciiRepresentation(System.err, timeline);
-        timeline.addObserver(concreteUi);
+        // AsciiRepresentation concreteUi = new AsciiRepresentation(System.err,
+        // timeline);
+        // timeline.addObserver(concreteUi);
 
         // Compute paths by bounding from rentalWishes to rentalWishes
 
