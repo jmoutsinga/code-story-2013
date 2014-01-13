@@ -30,7 +30,7 @@ public class TimelineRequestHandler {
         long now = System.currentTimeMillis();
         OptimalSpaceshiftPath result = rentOptimizer.optimize();
         logger.info("Optimizer took {} ms", System.currentTimeMillis() - now);
-        logger.info("Optimal choice = {}", result);
+        logger.info("Optimal choice :\n{}", result);
         return rentOptimizer.getResultedTimeline();
     }
 }

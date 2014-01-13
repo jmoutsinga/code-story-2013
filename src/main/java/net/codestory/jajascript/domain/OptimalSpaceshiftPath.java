@@ -57,4 +57,11 @@ public class OptimalSpaceshiftPath {
         return true;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("OptimalSpaceshiftPath [gain=").append(gain).append("\npath=").append(path).append("]");
+        return builder.toString();
+    }
+
 }
