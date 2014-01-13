@@ -1,3 +1,19 @@
 body {
 	text-align: center;
+	width: 1024px;
+	margin: auto;
+}
+
+.file-input-drop-zone {
+  height: 80px;
+  width: 400px;
+  margin : auto;
+  border: 1px dotted grey;
+  overflow: hidden;
+  text-align: center;
+  vertical-align: text-bottom;
+}
+
+.contentPane {
+  height: 400px;
 }
